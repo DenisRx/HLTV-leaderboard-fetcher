@@ -5,8 +5,12 @@ const app = express();
 const port = 3000;
 
 app.get('/leaderboard', async (req, res) => {
-    const teamRanking = await HLTV.getTeamRanking();
-    res.send(teamRanking);
+    try {
+        const teamRanking = await HLTV.getTeamRanking();
+        res.send(teamRanking);
+    } catch (e) {
+        console.error(e)
+    }
 })
 
 app.listen(port, () => {
