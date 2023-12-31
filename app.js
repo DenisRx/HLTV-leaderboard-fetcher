@@ -18,5 +18,5 @@ app.get('/leaderboard', async (req, res) => {
 })
 
 app.listen(process.env.PORT || port, () => {
-    console.log(`App listening on port ${process.env.port || port}`)
+    console.log(`App listening on port ${process.env.PORT || port}`)
 });
