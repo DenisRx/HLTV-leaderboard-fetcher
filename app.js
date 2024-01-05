@@ -5,15 +5,16 @@ const app = express()
 const port = 3000
 
 app.get('/', (req, res) => {
-    res.send('Welcome to HLTV-leaderboard-fetcher API.')
+    res.json('Welcome to HLTV-leaderboard-fetcher API.')
 })
 
 app.get('/leaderboard', async (req, res) => {
     try {
         const teamRanking = await HLTV.getTeamRanking()
-        res.send(teamRanking)
+        res.status(200).json(teamRanking)
     } catch (e) {
         console.error(e)
+        res.status(500).json()
     }
 })
 
